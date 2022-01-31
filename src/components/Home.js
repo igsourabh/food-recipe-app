@@ -12,7 +12,7 @@ props.history.push({pathname:"/search",state})
   };
   return (
     <>
-      <div className="container">
+      <div className="container" >
           home page
         <form class="d-flex" onSubmit={handelSubmit}>
           <input

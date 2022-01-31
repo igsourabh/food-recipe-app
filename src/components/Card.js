@@ -3,20 +3,48 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   return (
     <>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card my-2" >
         <span
-          class="badge rounded-pill bg-danger"
-          style={{ position: "absolute", zIndex: "1" }}
+          className="badge rounded-pill bg-danger"
+          style={{
+            display: "flex",
+            justifycontent: "flex-start",
+            position: "absolute",
+            right: 0,
+          }}
         >
-          {props.recipe}
+          {props.source}
         </span>
-          <img src={props.image} className="card-img-top" alt="..." />
-          <div className="card-body">
-        <Link to="/">
-            <h3 className="card-text">{props.title}</h3>
+        <img
+          src={
+            props.image
+              ? props.image
+              : "https://bitsofco.de/content/images/2018/12/broken-1.png"
+          }
+          className="card-img-top"
+          alt="..."
+        />
+        <div className="card-body">
+          <span class="badge bg-success">{props.dietLabels}</span>
+          <h5
+            className="card-title my-2"
+            style={{
             
-        </Link>
-          </div>
+              textTransform: "capitalize",
+            }}
+          >
+            {props.title}
+          </h5>
+
+          <a
+            rel="noreferrer"
+            href=""
+            target="_blank"
+            className="btn btn-sm btn-dark"
+          >
+            Read mode
+          </a>
+        </div>
       </div>
     </>
   );
