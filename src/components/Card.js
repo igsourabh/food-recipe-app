@@ -36,14 +36,13 @@ const Card = (props) => {
             {props.title}
           </h5>
 
-          <a
+          <Link
             rel="noreferrer"
-            href=""
-            target="_blank"
+            to={`/foodDetails/${props.id}`}
             className="btn btn-sm btn-dark"
           >
             Read mode
-          </a>
+          </Link>
         </div>
       </div>
     </>

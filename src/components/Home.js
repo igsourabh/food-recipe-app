@@ -1,35 +1,26 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "./Card";
+import { useDispatch } from "react-redux";
 
+import { useSelector } from "react-redux";
+import Carditem from "./Carditem";
+import { fetchasyncrecipe } from "./redux/features/foodSlice";;
 const Home = (props) => {
-  const [state, setstate] = useState("");
-  const handelSubmit=((e)=>{
-props.history.push({pathname:"/search",state})
+  const dispatch = useDispatch();
 
-  })
-  const handelChange = (e) => {
-    setstate(e.target.value);
-    console.log("handel has been changing");
-  };
+
+  useEffect(() => {
+  
+    dispatch(fetchasyncrecipe())
+  }, [dispatch]);
+  
+
   return (
     <>
-      <div className="container" >
-          home page
-        <form class="d-flex" onSubmit={handelSubmit}>
-          <input
-            class="form-control me-2"
-            type="text"
-            placeholder="Search"
-            aria-label="Search"
-            onChange={handelChange}
-            value={state}
-            required
-          />
-          <input
-            type="submit"
-            className="btn btn-primary"
-            value="Google Search"
-          />
-        </form>
+      <div className="container">
+        search page
+      <Carditem/>
       </div>
     </>
   );
