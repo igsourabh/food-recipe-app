@@ -1,50 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Card.css"
 const Card = (props) => {
   return (
     <>
-      <div className="card my-2" >
-        <span
-          className="badge rounded-pill bg-danger"
-          style={{
-            display: "flex",
-            justifycontent: "flex-start",
-            position: "absolute",
-            right: 0,
-          }}
-        >
-          {props.source}
-        </span>
-        <img
-          src={
-            props.image
-              ? props.image
-              : "https://bitsofco.de/content/images/2018/12/broken-1.png"
-          }
-          className="card-img-top"
-          alt="..."
-        />
-        <div className="card-body">
-          <span class="badge bg-success">{props.dietLabels}</span>
-          <h5
-            className="card-title my-2"
-            style={{
-            
-              textTransform: "capitalize",
-            }}
-          >
-            {props.title}
-          </h5>
+   
 
-          <Link
-            rel="noreferrer"
-            to={`/foodDetails/${props.id}`}
-            className="btn btn-sm btn-dark"
-          >
-            Read mode
-          </Link>
+<div className="container">
+<div className="row">
+
+  <Link className="btn " draggable="false" to={`/foodDetails/${props.id}`}>
+	
+
+		<div >
+
+
+          
+    <div className="profile-card-4 text-center" ><img src={props.image} alt={props.label} className="img img-responsive" 
+          draggable="false"
+    
+    />
+        <div className="profile-content">
+            <div className="profile-name">{props.source}
+                <p>{props.title}r</p>
+            </div>
+            <div className="profile-description text-capitalize fs-4 ">{props.title}</div>
+            <div className="row">
+                <div className="col-xs-4">
+                    <div className="profile-overview">
+                    <p className="fs-6 text-capitalize">cusinetype</p>
+                        <h5 className="text-capitalize">{props.cusinetype}</h5>
+                        </div>
+                </div>
+            
+             
+            </div>
         </div>
-      </div>
+    </div>
+</div>
+
+  </Link>
+          </div>
+</div>
     </>
   );
 };

@@ -1,17 +1,15 @@
 import React from 'react';
-import { addFood } from "./redux/features/foodSlice";
-import { useSelector } from "react-redux";
-import { allfood } from "./redux/features/foodSlice";
 import Card from './Card';
-const Carditem = () => {
-  const fooddata = useSelector(allfood);
-console.log(fooddata)
+
+const Carditem = (props) => {
+
+
 
   return (<>
-   <div className="row">
-          {fooddata.map((element, index) => {
+   <div className="row" >
+          {props.data.map((element, index) => {
             return (
-              <div className="col-md-3 my-2" key={element.recipe.uri}>
+              <div className="col my-2" key={element.recipe.uri}>
                 <Card
                   source={element.recipe.source}
                   image={element.recipe.image}
@@ -19,6 +17,7 @@ console.log(fooddata)
                   title={element.recipe.label}
                   dietLabels={element.recipe.dietLabels}
                   id={element.recipe.uri.slice(51,element.recipe.uri.length)}
+                  cusinetype={element.recipe.cuisineType}
                 />
               </div>
             );

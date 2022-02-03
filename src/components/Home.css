@@ -1,0 +1,11 @@
+#mdt { }
+
+@media (max-width: 2000px) {
+    #mdt { width: 50% }
+}
+@media (max-width: 900px) {
+    #mdt { width: 70% }
+}
+@media (max-width: 600px) {
+    #mdt { width: 90% }
+}
